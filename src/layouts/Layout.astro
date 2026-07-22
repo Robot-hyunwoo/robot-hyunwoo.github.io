@@ -433,6 +433,24 @@ const setup = () => {
 			heightExtend.classList.remove('hidden')
 		}
 	});
+	window.swup.hooks.on('page:view', () => {
+		// On narrow screens the sidebar (profile/categories/tags) is stacked
+		// above the main content, so navigating would land on the profile.
+		// Scroll the main content into view instead. Skip on wide screens
+		// (sidebar is beside content), on the home page, and for hash links.
+		if (window.innerWidth >= 1024) return;
+		if (pathsEqual(window.location.pathname, url('/'))) return;
+		if (window.location.hash) return;
+		const main = document.getElementById('swup-container');
+		if (!main) return;
+		setTimeout(() => {
+			const navbar = document.getElementById('navbar-wrapper');
+			const offset = (navbar?.offsetHeight ?? 72) + 12;
+			const top = main.getBoundingClientRect().top + window.scrollY - offset;
+			const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			window.scrollTo({ top: Math.max(0, top), behavior: reduce ? 'auto' : 'smooth' });
+		}, 50);
+	});
 	window.swup.hooks.on('visit:end', (_visit: {to: {url: string}}) => {
 		setTimeout(() => {
 			const heightExtend = document.getElementById('page-height-extend')
