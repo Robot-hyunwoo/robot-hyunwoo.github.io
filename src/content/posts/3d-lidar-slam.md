@@ -2,6 +2,7 @@
 title: "3D LiDAR SLAM — Factor Graph 기반 3D 맵핑"
 published: 2026-07-22T15:45:00+09:00
 description: "동적 환경에 취약한 2D SLAM의 한계를 3D LiDAR로 극복 — LIO-SAM 기반 커스텀 Factor Graph, Wheel·IMU Factor 융합과 Slip 감지로 정지 안정성 확보"
+image: "/posts/3d-lidar-slam/cover.jpg"
 tags: [SLAM, LIO-SAM, FactorGraph, LiDAR, IMU]
 category: Project
 draft: false

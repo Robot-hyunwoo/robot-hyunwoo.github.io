@@ -2,6 +2,7 @@
 title: "Visual Odometry와 Visual SLAM"
 published: 2026-06-16
 description: "카메라만으로 위치 추정과 지도 작성을 동시에 푸는 Visual SLAM — VO와의 차이, 드리프트, 루프 클로저, pose graph 최적화까지"
+image: "/posts/visual-odometry-vs-visual-slam/cover.jpg"
 tags: [SLAM, VO, Camera, ORB-SLAM]
 category: Sensor
 draft: false

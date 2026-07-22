@@ -2,6 +2,7 @@
 title: "robot_localization — EKF/UKF 센서 융합 패키지 분석"
 published: 2026-07-22T16:10:00+09:00
 description: "ROS robot_localization 패키지 분석 — EKF/UKF 상태 추정 이론, Mahalanobis 이상치 제거, navsat_transform GPS 통합, 센서 Config와 TF Tree, 소스 구조까지"
+image: "/posts/robot-localization/cover.png"
 tags: [robot_localization, EKF, UKF, TF, Sensor Fusion, ROS]
 category: ROS
 draft: false
