@@ -6,6 +6,13 @@ html.is-animating .transition-swup-fade {
     @apply opacity-0
 }
 
+/* While the page is swapping, freeze per-element transitions so button/link
+   backgrounds and outlines don't flash dark boxes. Only the container opacity
+   fade above should animate during the swap. */
+html.is-changing *:not(.transition-swup-fade) {
+    transition-duration: 0s !important;
+}
+
 /* Fade-in animations for components */
 @keyframes fade-in-up {
     0% {
