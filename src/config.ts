@@ -57,6 +57,10 @@ export const navBarConfig: NavBarConfig = {
 			name: "관심사",
 			url: "/now/",
 		},
+		{
+			name: "코딩테스트",
+			url: "/coding-test/",
+		},
 		LinkPreset.About,
 		{
 			name: "GitHub",

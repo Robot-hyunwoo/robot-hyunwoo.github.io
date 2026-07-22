@@ -28,8 +28,21 @@ const interestsCollection = defineCollection({
 		updated: z.date(),
 	}),
 });
+const problemsCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		site: z.string(), // 백준 | 프로그래머스 | LeetCode ...
+		source: z.string().optional().default(""), // 대회/출처 (e.g. 2025 카카오 하반기 2차)
+		level: z.string().optional().default(""), // Lv.2 | Gold IV ...
+		languages: z.array(z.string()).optional().default([]),
+		algorithms: z.array(z.string()).optional().default([]),
+		date: z.date(), // 문제 푼 날짜
+		url: z.string().optional().default(""), // 문제 원본 링크
+	}),
+});
 export const collections = {
 	posts: postsCollection,
 	spec: specCollection,
 	interests: interestsCollection,
+	problems: problemsCollection,
 };
