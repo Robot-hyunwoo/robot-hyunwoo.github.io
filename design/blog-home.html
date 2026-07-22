@@ -1,0 +1,325 @@
+<title>Robot-Hyunwoo BLOG — 홈 (Fuwari 스타일)</title>
+<style>
+  :root {
+    --page-bg: #eef1f6;
+    --card-bg: #ffffff;
+    --ink: #23252f;
+    --muted: #767c8c;
+    --line: #e4e7ee;
+    --accent: #6358c9;
+    --accent-weak: #edeafd;
+    --accent-grad: linear-gradient(135deg, #6358c9, #8b7ae8);
+    --chip-bg: #f1f3f8;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #16181f;
+      --card-bg: #1f222c;
+      --ink: #e6e8ef;
+      --muted: #8f96a8;
+      --line: #2c3040;
+      --accent: #a08ff5;
+      --accent-weak: #2b2745;
+      --accent-grad: linear-gradient(135deg, #7a68e0, #a08ff5);
+      --chip-bg: #272b38;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #16181f;
+    --card-bg: #1f222c;
+    --ink: #e6e8ef;
+    --muted: #8f96a8;
+    --line: #2c3040;
+    --accent: #a08ff5;
+    --accent-weak: #2b2745;
+    --accent-grad: linear-gradient(135deg, #7a68e0, #a08ff5);
+    --chip-bg: #272b38;
+  }
+  :root[data-theme="light"] {
+    --page-bg: #eef1f6;
+    --card-bg: #ffffff;
+    --ink: #23252f;
+    --muted: #767c8c;
+    --line: #e4e7ee;
+    --accent: #6358c9;
+    --accent-weak: #edeafd;
+    --accent-grad: linear-gradient(135deg, #6358c9, #8b7ae8);
+    --chip-bg: #f1f3f8;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--page-bg); color: var(--ink);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.65; font-size: 15.5px;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  .shell { max-width: 1060px; margin: 0 auto; padding: 1rem 1rem 3rem; }
+
+  /* navbar */
+  .navbar {
+    background: var(--card-bg); border-radius: var(--radius);
+    padding: 0.7rem 1.2rem; display: flex; align-items: center; gap: 1rem;
+    box-shadow: 0 2px 10px rgba(20, 24, 40, 0.06);
+  }
+  .brand { font-weight: 800; font-size: 1.08rem; letter-spacing: -0.01em; }
+  .brand::before { content: "🤖 "; }
+  .brand b { color: var(--accent); }
+  .nav-links { display: flex; gap: 0.2rem; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a {
+    padding: 0.35rem 0.85rem; border-radius: var(--radius-sm);
+    font-weight: 600; font-size: 0.88rem; color: var(--muted);
+  }
+  .nav-links a.on, .nav-links a:hover { background: var(--accent-weak); color: var(--accent); }
+  .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* hero banner */
+  .banner {
+    margin-top: 1rem; border-radius: var(--radius); overflow: hidden;
+    background: var(--accent-grad); color: #fff;
+    padding: 2.2rem 1.6rem 2rem; position: relative;
+  }
+  .banner h1 { margin: 0 0 0.3rem; font-size: clamp(1.5rem, 4vw, 2.1rem); letter-spacing: -0.02em; }
+  .banner p { margin: 0; opacity: 0.88; font-size: 0.95rem; }
+  .banner .grid-deco {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.18;
+    background-image: linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: radial-gradient(ellipse at 80% 0%, #000 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 80% 0%, #000 20%, transparent 75%);
+  }
+
+  /* layout */
+  .layout { display: grid; grid-template-columns: 250px 1fr; gap: 1rem; margin-top: 1rem; align-items: start; }
+  @media (max-width: 780px) { .layout { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card-bg); border-radius: var(--radius);
+    padding: 1.15rem 1.25rem;
+    box-shadow: 0 2px 10px rgba(20, 24, 40, 0.06);
+  }
+  .sidebar { display: grid; gap: 1rem; }
+
+  .profile { text-align: center; }
+  .avatar {
+    width: 84px; height: 84px; border-radius: 50%; margin: 0.3rem auto 0.7rem;
+    background: var(--accent-grad); color: #fff; display: flex;
+    align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.6rem; letter-spacing: 0.02em;
+  }
+  .profile .name { font-weight: 800; font-size: 1.05rem; }
+  .profile .bio { color: var(--muted); font-size: 0.84rem; margin: 0.35rem 0 0.8rem; }
+  .profile .links { display: flex; justify-content: center; gap: 0.5rem; }
+  .profile .links a {
+    padding: 0.3rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.8rem;
+    font-weight: 600; background: var(--chip-bg); color: var(--muted);
+  }
+  .profile .links a:hover { background: var(--accent-weak); color: var(--accent); }
+
+  .side-title {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 0.6rem;
+  }
+  .cat-list { display: grid; gap: 0.15rem; margin: 0; padding: 0; list-style: none; }
+  .cat-list a {
+    display: flex; align-items: center; gap: 0.55rem;
+    padding: 0.42rem 0.6rem; border-radius: var(--radius-sm);
+    font-size: 0.88rem; font-weight: 600; color: var(--ink);
+  }
+  .cat-list a:hover { background: var(--accent-weak); color: var(--accent); }
+  .cat-list .ico { width: 1.2em; text-align: center; }
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag-cloud a {
+    font-size: 0.78rem; font-weight: 600; padding: 0.18rem 0.6rem;
+    border-radius: 99px; background: var(--chip-bg); color: var(--muted);
+  }
+  .tag-cloud a:hover { background: var(--accent-weak); color: var(--accent); }
+
+  /* post cards */
+  .posts { display: grid; gap: 1rem; }
+  .post-card { display: block; position: relative; transition: transform 0.15s ease; }
+  .post-card:hover { transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .post-card, .post-card:hover { transition: none; transform: none; } }
+  .post-card h2 {
+    margin: 0 0 0.4rem; font-size: 1.18rem; letter-spacing: -0.015em; line-height: 1.4;
+    padding-left: 0.85rem; position: relative; text-wrap: balance;
+  }
+  .post-card h2::before {
+    content: ""; position: absolute; left: 0; top: 0.28em; bottom: 0.28em;
+    width: 4px; border-radius: 4px; background: var(--accent-grad);
+  }
+  .post-card:hover h2 { color: var(--accent); }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; align-items: center;
+    font-size: 0.8rem; color: var(--muted); margin-bottom: 0.45rem; padding-left: 0.85rem;
+  }
+  .meta time { font-variant-numeric: tabular-nums; }
+  .meta .cat { color: var(--accent); font-weight: 700; }
+  .meta .tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .meta .tags span {
+    background: var(--chip-bg); border-radius: 99px; padding: 0.05rem 0.5rem;
+    font-size: 0.74rem; font-weight: 600;
+  }
+  .post-card p.desc {
+    margin: 0; color: var(--muted); font-size: 0.88rem; padding-left: 0.85rem;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .stub {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--muted);
+    border: 1px dashed var(--line); border-radius: 4px; padding: 0 0.4rem; margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+
+  .foot {
+    margin-top: 1.2rem; text-align: center; color: var(--muted); font-size: 0.8rem;
+  }
+  .foot a { color: var(--accent); font-weight: 600; }
+</style>
+
+<div class="shell">
+  <nav class="navbar">
+    <a class="brand" href="#">Robot-<b>Hyunwoo</b></a>
+    <div class="nav-links">
+      <a class="on" href="#">홈</a>
+      <a href="#">아카이브</a>
+      <a href="#">시리즈</a>
+      <a href="#">About</a>
+    </div>
+  </nav>
+
+  <header class="banner">
+    <div class="grid-deco"></div>
+    <h1>Robot-Hyunwoo BLOG</h1>
+    <p>SLAM · ROS · 센서, 로봇 엔지니어의 공부 기록</p>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="card profile">
+        <div class="avatar" aria-hidden="true">HW</div>
+        <div class="name">정현우</div>
+        <p class="bio">Robotics SW Engineer<br>2D/3D LiDAR SLAM · Localization</p>
+        <div class="links">
+          <a href="https://github.com/Robot-hyunwoo">GitHub</a>
+          <a href="#">RSS</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="side-title">카테고리</p>
+        <ul class="cat-list">
+          <li><a href="#"><span class="ico">🗺️</span>SLAM</a></li>
+          <li><a href="#"><span class="ico">🦾</span>ROS</a></li>
+          <li><a href="#"><span class="ico">📏</span>Sensor</a></li>
+          <li><a href="#"><span class="ico">💬</span>Code</a></li>
+          <li><a href="#"><span class="ico">🧠</span>AI</a></li>
+          <li><a href="#"><span class="ico">🚗</span>Autonomous</a></li>
+          <li><a href="#"><span class="ico">📋</span>Project</a></li>
+          <li><a href="#"><span class="ico">🖥️</span>System</a></li>
+          <li><a href="#"><span class="ico">📚</span>Book</a></li>
+          <li><a href="#"><span class="ico">🐙</span>GitHub</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <p class="side-title">태그</p>
+        <div class="tag-cloud">
+          <a href="#">SLAM</a><a href="#">FactorGraph</a><a href="#">Paper</a>
+          <a href="#">Algorithm</a><a href="#">VO</a><a href="#">Camera</a>
+          <a href="#">ORB-SLAM</a><a href="#">LiDAR</a>
+        </div>
+      </div>
+    </aside>
+
+    <section class="posts" aria-label="최근 글">
+      <a class="card post-card" href="https://claude.ai/code/artifact/ac9ebbfa-f7eb-44d7-86cd-4404f669aef5">
+        <h2>Visual Odometry와 Visual SLAM</h2>
+        <div class="meta">
+          <time datetime="2026-06-16">2026-06-16</time>
+          <span class="cat">Sensor / Camera</span>
+          <span class="tags"><span>SLAM</span><span>VO</span><span>ORB-SLAM</span></span>
+        </div>
+        <p class="desc">카메라만으로 위치 추정과 지도 작성을 동시에 푸는 Visual SLAM — VO와의 차이, 드리프트, 루프 클로저, pose graph 최적화까지. (클릭하면 변환된 글이 열립니다)</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>GLIM<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-10-13">2025-10-13</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>SLAM</span><span>Algorithm</span><span>Paper</span></span>
+        </div>
+        <p class="desc">GPU 가속 범용 LiDAR-IMU 매핑 프레임워크.</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>LiDAR-SLAM-Detection<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-09-08">2025-09-08</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>SLAM</span><span>LiDAR</span></span>
+        </div>
+        <p class="desc">LiDAR 기반 SLAM과 객체 탐지 통합 파이프라인.</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>Scan Context<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-06-02">2025-06-02</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>Paper</span></span>
+        </div>
+        <p class="desc">비학습 기반 전역 장소 인식 기술자 — 루프 클로저 검출의 표준.</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>SLAM-Toolbox<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-06-02">2025-06-02</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>SLAM</span><span>Algorithm</span></span>
+        </div>
+        <p class="desc">ROS2 표준 2D SLAM 패키지 — Lifelong SLAM 구현 경험 정리.</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>Ceres Solver &amp; Loss Function<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-06-02">2025-06-02</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>Algorithm</span></span>
+        </div>
+        <p class="desc">비선형 최소제곱 최적화와 강건 손실 함수.</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>LIO-SAM<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-06-02">2025-06-02</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>SLAM</span><span>FactorGraph</span></span>
+        </div>
+        <p class="desc">LiDAR-Inertial Odometry via Smoothing and Mapping — 팩터 그래프 기반 긴밀 결합 LIO.</p>
+      </a>
+
+      <a class="card post-card" href="#">
+        <h2>EKF &amp; Transfer Function<span class="stub">본문 작성 중</span></h2>
+        <div class="meta">
+          <time datetime="2025-06-02">2025-06-02</time>
+          <span class="cat">SLAM</span>
+          <span class="tags"><span>Algorithm</span></span>
+        </div>
+        <p class="desc">확장 칼만 필터와 전달 함수 기초.</p>
+      </a>
+    </section>
+  </div>
+
+  <footer class="foot">
+    Fuwari 스타일 시안 — 글 목록·카테고리·태그는 노션 「Robot-Hyunwoo BLOG」의 실제 DB에서 가져왔습니다 ·
+    <a href="https://claude.ai/code/artifact/ac9ebbfa-f7eb-44d7-86cd-4404f669aef5">글 페이지 시안 보기</a>
+  </footer>
+</div>
