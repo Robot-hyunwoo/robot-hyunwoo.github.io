@@ -9,55 +9,67 @@ const problems = await getCollection("problems");
 problems.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 // --- Contribution heatmap (binary: recorded a problem that day or not) ---
-// Set of solved days as YYYY-MM-DD (UTC, matching how frontmatter dates parse)
 const solvedSet = new Set(
 	problems.map((p) => p.data.date.toISOString().slice(0, 10)),
 );
 
-const now = new Date();
-const end = new Date(
-	Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()),
-);
-// Start ~53 weeks back, snapped to Sunday, so we cover a full year of columns
-const start = new Date(end);
-start.setUTCDate(start.getUTCDate() - 7 * 52);
-start.setUTCDate(start.getUTCDate() - start.getUTCDay());
+const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+const weekdayLabels = ["", "월", "", "수", "", "금", ""]; // Sun..Sat, label Mon/Wed/Fri
 
 interface HeatCell {
 	key: string;
+	inYear: boolean;
 	filled: boolean;
-	pad: boolean;
 }
-interface HeatWeek {
+interface HeatRow {
 	cells: HeatCell[];
-	monthLabel: string; // shown when a new month starts in this week
+	label: string; // month label shown when a new month begins in this week-row
 }
-const weeks: HeatWeek[] = [];
-let cur = new Date(start);
-let cells: HeatCell[] = [];
-let lastMonth = -1;
-let weekMonthLabel = "";
-const monthNames = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
-while (cur <= end) {
-	const key = cur.toISOString().slice(0, 10);
-	// First cell of the week decides the month label
-	if (cells.length === 0) {
-		const m = cur.getUTCMonth();
-		weekMonthLabel = m !== lastMonth ? monthNames[m] : "";
-		lastMonth = m;
+
+// Build a full calendar year as week-rows (Sunday→Saturday), months labeled down the left.
+function buildYear(year: number): HeatRow[] {
+	const dec31 = new Date(Date.UTC(year, 11, 31));
+	const start = new Date(Date.UTC(year, 0, 1));
+	start.setUTCDate(start.getUTCDate() - start.getUTCDay()); // snap back to Sunday
+	const rows: HeatRow[] = [];
+	let lastMonth = -1;
+	const weekStart = new Date(start);
+	while (weekStart <= dec31) {
+		const cells: HeatCell[] = [];
+		for (let i = 0; i < 7; i++) {
+			const day = new Date(weekStart);
+			day.setUTCDate(day.getUTCDate() + i);
+			const inYear = day.getUTCFullYear() === year;
+			const key = day.toISOString().slice(0, 10);
+			cells.push({ key, inYear, filled: inYear && solvedSet.has(key) });
+		}
+		// Label with the month of the first in-year day, when it changes
+		const firstInYear = cells.find((c) => c.inYear);
+		let label = "";
+		if (firstInYear) {
+			const m = Number(firstInYear.key.slice(5, 7)) - 1;
+			if (m !== lastMonth) {
+				label = monthNames[m];
+				lastMonth = m;
+			}
+		}
+		rows.push({ cells, label });
+		weekStart.setUTCDate(weekStart.getUTCDate() + 7);
 	}
-	cells.push({ key, filled: solvedSet.has(key), pad: false });
-	if (cur.getUTCDay() === 6) {
-		weeks.push({ cells, monthLabel: weekMonthLabel });
-		cells = [];
-	}
-	cur.setUTCDate(cur.getUTCDate() + 1);
+	return rows;
 }
-if (cells.length > 0) {
-	while (cells.length < 7) cells.push({ key: "", filled: false, pad: true });
-	weeks.push({ cells, monthLabel: weekMonthLabel });
-}
-const totalDays = solvedSet.size;
+
+const currentYear = new Date().getUTCFullYear();
+const years = Array.from(
+	new Set([...problems.map((p) => p.data.date.getUTCFullYear()), currentYear]),
+).sort((a, b) => a - b);
+const defaultYear = years.includes(currentYear) ? currentYear : years[years.length - 1];
+
+const yearData = years.map((y) => ({
+	year: y,
+	rows: buildYear(y),
+	count: [...solvedSet].filter((k) => Number(k.slice(0, 4)) === y).length,
+}));
 ---
 <MainGridLayout title="코딩테스트" description="백준·프로그래머스 등에서 푼 문제 기록">
     <div class="flex flex-col gap-4">
@@ -67,46 +79,60 @@ const totalDays = solvedSet.size;
             <span class="text-30 text-sm">총 {problems.length}문제</span>
         </div>
 
-        <!-- Contribution heatmap -->
-        <div class="card-base z-10 px-6 md:px-9 py-6">
-            <div class="flex items-baseline justify-between gap-2 mb-3 flex-wrap">
-                <h2 class="text-lg font-bold text-90">최근 1년 기록</h2>
-                <span class="text-30 text-sm">{totalDays}일 기록</span>
-            </div>
-            <div class="overflow-x-auto pb-1">
-                <div class="inline-flex flex-col gap-1">
-                    <!-- Month labels -->
-                    <div class="flex gap-[3px]">
-                        {weeks.map((w) => (
-                            <div class="w-3 text-[10px] text-30 leading-none h-3">{w.monthLabel}</div>
-                        ))}
-                    </div>
-                    <!-- Week columns -->
-                    <div class="flex gap-[3px]">
-                        {weeks.map((w) => (
-                            <div class="flex flex-col gap-[3px]">
-                                {w.cells.map((c) => (
-                                    c.pad ? (
-                                        <div class="w-3 h-3"></div>
-                                    ) : (
-                                        <div
-                                            class={`w-3 h-3 rounded-[2px] ${c.filled ? "bg-[var(--primary)]" : "bg-[var(--btn-regular-bg)]"}`}
-                                            title={c.filled ? `${c.key} · 기록함` : c.key}
-                                        ></div>
-                                    )
-                                ))}
-                            </div>
-                        ))}
-                    </div>
+        <!-- Contribution heatmap (year tabs, months down the side) -->
+        <div class="card-base z-10 px-6 md:px-9 py-6" data-ct-heatmap>
+            <div class="flex items-center justify-between gap-2 mb-4 flex-wrap">
+                <h2 class="text-lg font-bold text-90">문제 풀이 기록</h2>
+                <div class="flex gap-1">
+                    {years.map((y) => (
+                        <button type="button" data-ct-year={String(y)}
+                            class:list={["ct-tab px-3 py-1 rounded-lg text-sm font-medium", y === defaultYear && "ct-active"]}>
+                            {y}
+                        </button>
+                    ))}
                 </div>
             </div>
-            <!-- Legend -->
-            <div class="flex items-center gap-2 mt-3 text-30 text-xs">
-                <span>기록 없음</span>
-                <div class="w-3 h-3 rounded-[2px] bg-[var(--btn-regular-bg)]"></div>
-                <div class="w-3 h-3 rounded-[2px] bg-[var(--primary)]"></div>
-                <span>기록함</span>
-            </div>
+
+            {yearData.map(({ year, rows, count }) => (
+                <div data-ct-panel={String(year)} class:list={["ct-panel", year === defaultYear && "ct-active"]}>
+                    <div class="overflow-x-auto pb-1">
+                        <div class="inline-block">
+                            <!-- Weekday header (horizontal axis) -->
+                            <div class="flex gap-[3px] mb-[3px]">
+                                <div class="w-9 shrink-0"></div>
+                                {weekdayLabels.map((wd) => (
+                                    <div class="w-3 text-[10px] text-30 leading-3 text-center">{wd}</div>
+                                ))}
+                            </div>
+                            <!-- Week rows (months on the vertical axis) -->
+                            <div class="flex flex-col gap-[3px]">
+                                {rows.map((row) => (
+                                    <div class="flex gap-[3px] items-center">
+                                        <div class="w-9 shrink-0 text-[10px] text-30 leading-3 text-right pr-1">{row.label}</div>
+                                        {row.cells.map((c) => (
+                                            c.inYear ? (
+                                                <div
+                                                    class={`w-3 h-3 rounded-[2px] ${c.filled ? "bg-[var(--primary)]" : "bg-[var(--btn-regular-bg)]"}`}
+                                                    title={c.filled ? `${c.key} · 기록함` : c.key}
+                                                ></div>
+                                            ) : (
+                                                <div class="w-3 h-3"></div>
+                                            )
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 mt-3 text-30 text-xs flex-wrap">
+                        <span>기록 없음</span>
+                        <div class="w-3 h-3 rounded-[2px] bg-[var(--btn-regular-bg)]"></div>
+                        <div class="w-3 h-3 rounded-[2px] bg-[var(--primary)]"></div>
+                        <span>기록함</span>
+                        <span class="ml-1">· {year}년 {count}일 기록</span>
+                    </div>
+                </div>
+            ))}
         </div>
 
         {problems.length > 0 && (
@@ -115,7 +141,6 @@ const totalDays = solvedSet.size;
                     {problems.map((p) => (
                         <a href={url(`/coding-test/${p.slug}/`)} aria-label={p.data.title}
                            class="group flex flex-col gap-2 rounded-xl px-5 py-4 bg-[var(--btn-regular-bg)] hover:bg-[var(--btn-regular-bg-hover)] active:scale-[0.99] transition">
-                            <!-- Line 1: [site] title ............ date -->
                             <div class="flex items-start justify-between gap-3">
                                 <h2 class="font-bold leading-snug min-w-0">
                                     <span class="text-[var(--primary)]">[{p.data.site}]</span>
@@ -125,13 +150,9 @@ const totalDays = solvedSet.size;
                                     {formatDateToYYYYMMDD(p.data.date)}
                                 </time>
                             </div>
-
-                            <!-- Line 2: source -->
                             {p.data.source && (
                                 <span class="text-50 text-sm -mt-1">{p.data.source}</span>
                             )}
-
-                            <!-- Line 3: tags -->
                             <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-30 text-sm">
                                 {p.data.level && <span>#{p.data.level}</span>}
                                 {p.data.languages.map((lang) => <span>#{lang}</span>)}
@@ -150,3 +171,43 @@ const totalDays = solvedSet.size;
         )}
     </div>
 </MainGridLayout>
+
+<style>
+    .ct-tab {
+        background: var(--btn-regular-bg);
+        transition: background 0.2s, color 0.2s;
+    }
+    .ct-tab:hover {
+        background: var(--btn-regular-bg-hover);
+    }
+    .ct-tab.ct-active {
+        background: var(--primary);
+        color: #fff;
+    }
+    .ct-panel {
+        display: none;
+    }
+    .ct-panel.ct-active {
+        display: block;
+    }
+</style>
+
+<script>
+    // Year-tab switching for the contribution heatmap.
+    // Delegated on document so it survives swup page transitions.
+    document.addEventListener("click", (e) => {
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+        const btn = t.closest("[data-ct-year]");
+        if (!btn) return;
+        const root = btn.closest("[data-ct-heatmap]");
+        if (!root) return;
+        const year = btn.getAttribute("data-ct-year");
+        root.querySelectorAll("[data-ct-year]").forEach((b) =>
+            b.classList.toggle("ct-active", b.getAttribute("data-ct-year") === year),
+        );
+        root.querySelectorAll("[data-ct-panel]").forEach((p) =>
+            p.classList.toggle("ct-active", p.getAttribute("data-ct-panel") === year),
+        );
+    });
+</script>
