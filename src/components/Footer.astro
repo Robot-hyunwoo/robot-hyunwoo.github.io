@@ -26,7 +26,9 @@ const currentYear = new Date().getFullYear();
         function update() {
             const box = document.getElementById("visitor-stats");
             if (!box) return;
-            fetch(ENDPOINT)
+            // Cache-bust: browsers may have cached the earlier 403 (before the
+            // counter endpoint was made public), which would keep it hidden.
+            fetch(ENDPOINT + "?t=" + Date.now(), { cache: "no-store" })
                 .then((r) => (r.ok ? r.json() : Promise.reject()))
                 .then((d) => {
                     const v = document.getElementById("gc-visitors");
