@@ -145,7 +145,25 @@ const bannerOffset =
 
 		<slot name="head"></slot>
 
-		<!-- GoatCounter analytics (privacy-friendly, no cookies). count.js auto-counts the first load. -->
+		<!-- Ignore-my-own-visits toggle (must run before count.js): visit ?skipgc to exclude this browser, ?skipgc=off to re-enable. -->
+		<script is:inline>
+			(function () {
+				try {
+					var p = new URLSearchParams(location.search);
+					if (p.has('skipgc')) {
+						if (p.get('skipgc') === 'off') {
+							localStorage.removeItem('skipgc');
+							alert('이 브라우저: 방문 집계 다시 ON (본인도 카운트됨)');
+						} else {
+							localStorage.setItem('skipgc', 't');
+							alert('이 브라우저: 방문 집계 제외 완료 (본인은 이제 카운트 안 됨)');
+						}
+					}
+				} catch (e) {}
+			})();
+		</script>
+
+		<!-- GoatCounter analytics (privacy-friendly, no cookies). count.js auto-counts the first load; respects the skipgc flag above. -->
 		<script is:inline data-goatcounter="https://mine5264.goatcounter.com/count"
 				async src="https://gc.zgo.at/count.js"></script>
 		<script is:inline>
