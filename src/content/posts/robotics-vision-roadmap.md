@@ -2,6 +2,7 @@
 title: "로보틱스 비전 학습 로드맵"
 published: 2026-07-27T14:00:00+09:00
 description: "로보틱스 배경에서 컴퓨터 비전을 학문적으로 처음부터 익혀가는 로드맵. 수학 기반부터 이미지 형성·특징·다중뷰 SLAM·딥러닝 비전을 거쳐 Visual Servoing까지, 각 주제를 '왜 필요한가' 중심으로 정리한다."
+image: "/posts/robotics-vision-roadmap/cover.png"
 tags: [Vision, ComputerVision, RoadMap, Study]
 category: Vision
 draft: false

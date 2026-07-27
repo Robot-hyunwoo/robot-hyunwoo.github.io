@@ -41,3 +41,36 @@ document.addEventListener("click", function (e: MouseEvent) {
     }
 });
 </script>
+
+<!-- Client-side Mermaid renderer for <pre class="mermaid"> blocks emitted by remark-mermaid -->
+<script is:inline type="module">
+    let mermaidMod = null;
+    async function renderMermaid() {
+        const nodes = document.querySelectorAll('pre.mermaid:not([data-processed="true"])');
+        if (!nodes.length) return;
+        // Keep the raw graph source so a theme switch can re-render from scratch.
+        nodes.forEach((n) => {
+            if (!n.dataset.src) n.dataset.src = n.textContent;
+        });
+        if (!mermaidMod) {
+            mermaidMod = (await import("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs")).default;
+        }
+        const dark = document.documentElement.classList.contains("dark");
+        mermaidMod.initialize({ startOnLoad: false, theme: dark ? "dark" : "default", securityLevel: "loose" });
+        try {
+            await mermaidMod.run({ nodes });
+        } catch (e) {
+            /* leave the source visible if a diagram fails to parse */
+        }
+    }
+    renderMermaid();
+    // Re-render after swup page transitions.
+    function hookSwup() {
+        if (window.swup && window.swup.hooks) {
+            window.swup.hooks.on("page:view", renderMermaid);
+            return true;
+        }
+        return false;
+    }
+    if (!hookSwup()) document.addEventListener("swup:enable", hookSwup);
+</script>
