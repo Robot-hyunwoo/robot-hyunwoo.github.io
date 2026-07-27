@@ -1,10 +1,11 @@
 ---
-title: "CNN 기초와 이미지 분류"
-order: 17
-part: "Part 4. 딥러닝 비전"
-difficulty: "기초"
-reference: "Stanford CS231n / Goodfellow Deep Learning Ch.9"
-url: "https://app.notion.com/381ef14a0ed88138938ad51b2a704f79"
+title: "#17 — CNN 기초와 이미지 분류"
+published: 2026-07-27T12:44:00+09:00
+description: "기하 기반 비전이 \"어디에 있는가\"를 풀었다면, 딥러닝 비전은 \"이것이 무엇인가\"를 푼다. 그 출발점이 CNN이고, CNN의 핵심 연산은 이미 Part 2에서 본 컨볼루션이다."
+tags: [Vision, 기초]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 기하 기반 비전이 "어디에 있는가"를 풀었다면, 딥러닝 비전은 "이것이 무엇인가"를 푼다. 그 출발점이 CNN이고, CNN의 핵심 연산은 이미 Part 2에서 본 컨볼루션이다.

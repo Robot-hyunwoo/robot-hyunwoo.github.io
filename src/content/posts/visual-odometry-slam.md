@@ -1,10 +1,11 @@
 ---
-title: "Visual Odometry와 Visual SLAM"
-order: 16
-part: "Part 3. 3D 복원 수학·다중뷰·SLAM"
-difficulty: "심화"
-reference: "Mur-Artal 2015 (ORB-SLAM) / Scaramuzza VO 튜토리얼"
-url: "https://app.notion.com/381ef14a0ed881139dd9f8df7b245657"
+title: "#16 — Visual Odometry와 Visual SLAM"
+published: 2026-07-27T12:45:00+09:00
+description: "카메라만으로 \"내가 어디 있고, 주변은 어떻게 생겼는가\"를 동시에 푸는 것이 Visual SLAM이다. 앞선 모든 항목(특징·에피폴라·삼각측량·번들 조정)이 여기서 하나의 시스템으로 합쳐진다."
+tags: [Vision, 심화]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 카메라만으로 "내가 어디 있고, 주변은 어떻게 생겼는가"를 동시에 푸는 것이 Visual SLAM이다. 앞선 모든 항목(특징·에피폴라·삼각측량·번들 조정)이 여기서 하나의 시스템으로 합쳐진다.

@@ -1,10 +1,11 @@
 ---
-title: "확률·추정·최적화 기초 (가우시안·Gauss-Newton)"
-order: 5
-part: "Part 0. 수학 기반 (선형대수·기하)"
-difficulty: "중급"
-reference: "Probabilistic Robotics Ch.2-3 / Szeliski Appendix B"
-url: "https://app.notion.com/381ef14a0ed881e8af5ce62cabcbe10e"
+title: "#5 — 확률·추정·최적화 기초 (가우시안·Gauss-Newton)"
+published: 2026-07-27T12:56:00+09:00
+description: "실제 카메라 관측에는 노이즈가 있다. 그래서 비전의 추정은 \"정확한 해를 계산\"하는 게 아니라 \"불확실성 속에서 가장 그럴듯한 해를 추정\"하는 일이다. 이 관점이 확률·추정·최적화이며, Part 3의 SLAM·번들 조정으로 가는 다리다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 실제 카메라 관측에는 노이즈가 있다. 그래서 비전의 추정은 "정확한 해를 계산"하는 게 아니라 "불확실성 속에서 가장 그럴듯한 해를 추정"하는 일이다. 이 관점이 확률·추정·최적화이며, Part 3의 SLAM·번들 조정으로 가는 다리다.

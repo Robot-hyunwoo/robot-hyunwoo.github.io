@@ -1,10 +1,11 @@
 ---
-title: "특징점 기술자와 매칭 (SIFT·ORB)"
-order: 12
-part: "Part 2. 특징·저수준 비전"
-difficulty: "중급"
-reference: "Lowe 2004 (SIFT) / Rublee 2011 (ORB)"
-url: "https://app.notion.com/381ef14a0ed881719c1cef9b18939e5b"
+title: "#12 — 특징점 기술자와 매칭 (SIFT·ORB)"
+published: 2026-07-27T12:49:00+09:00
+description: "코너를 찾는 것만으로는 부족하다. 다른 이미지의 코너와 \"같은 점인지\" 매칭하려면, 각 점 주변을 숫자 벡터로 요약한 기술자(descriptor)가 필요하다. 이 기술자가 스케일·회전·조명 변화에도 같아야 매칭이 된다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 코너를 찾는 것만으로는 부족하다. 다른 이미지의 코너와 "같은 점인지" 매칭하려면, 각 점 주변을 숫자 벡터로 요약한 기술자(descriptor)가 필요하다. 이 기술자가 스케일·회전·조명 변화에도 같아야 매칭이 된다.

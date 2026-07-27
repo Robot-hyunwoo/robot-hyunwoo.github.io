@@ -1,10 +1,11 @@
 ---
-title: "Visual Servoing 기초 (IBVS·PBVS)"
-order: 20
-part: "Part 5. Visual Servoing·로봇 통합"
-difficulty: "심화"
-reference: "Chaumette & Hutchinson 2006 (Visual Servo Control 튜토리얼)"
-url: "https://app.notion.com/381ef14a0ed8816e8912c71f8cbae299"
+title: "#20 — Visual Servoing 기초 (IBVS·PBVS)"
+published: 2026-07-27T12:41:00+09:00
+description: "지금까지는 \"보는 것\"이었다. Visual Servoing은 본 것으로 \"로봇을 움직이는 것\"이다. 비전과 제어가 만나는 지점이자, 이 로드맵이 로보틱스로 귀결되는 종착점이다."
+tags: [Vision, 심화]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 지금까지는 "보는 것"이었다. Visual Servoing은 본 것으로 "로봇을 움직이는 것"이다. 비전과 제어가 만나는 지점이자, 이 로드맵이 로보틱스로 귀결되는 종착점이다.

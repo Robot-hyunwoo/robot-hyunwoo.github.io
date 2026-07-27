@@ -1,10 +1,11 @@
 ---
-title: "이미지 필터링과 컨볼루션"
-order: 10
-part: "Part 2. 특징·저수준 비전"
-difficulty: "기초"
-reference: "Szeliski Ch.3 (Image Processing)"
-url: "https://app.notion.com/381ef14a0ed881a6aee5e178ef91e2f4"
+title: "#10 — 이미지 필터링과 컨볼루션"
+published: 2026-07-27T12:51:00+09:00
+description: "이미지에서 정보를 뽑는 모든 저수준 연산의 토대가 컨볼루션이다. 블러, 엣지, 코너, 그리고 CNN까지 — 전부 \"작은 커널을 이미지에 미끄러뜨리는\" 같은 연산이다."
+tags: [Vision, 기초]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 이미지에서 정보를 뽑는 모든 저수준 연산의 토대가 컨볼루션이다. 블러, 엣지, 코너, 그리고 CNN까지 — 전부 "작은 커널을 이미지에 미끄러뜨리는" 같은 연산이다.

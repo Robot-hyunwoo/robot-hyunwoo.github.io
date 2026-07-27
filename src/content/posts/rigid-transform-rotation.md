@@ -1,10 +1,11 @@
 ---
-title: "강체 변환과 회전 표현 (SO(3)·SE(3)·쿼터니언)"
-order: 4
-part: "Part 0. 수학 기반 (선형대수·기하)"
-difficulty: "중급"
-reference: "Corke RVC Ch.2 / Modern Robotics Ch.3"
-url: "https://app.notion.com/381ef14a0ed881d69584fa50261c8ab7"
+title: "#4 — 강체 변환과 회전 표현 (SO(3)·SE(3)·쿼터니언)"
+published: 2026-07-27T12:57:00+09:00
+description: "카메라의 위치와 자세는 곧 강체 변환이다. 로보틱스 배경이 있다면 SE(3)는 익숙하겠지만, 비전에서 중요한 건 이 변환이 투영·최적화와 어떻게 맞물리는가, 그리고 회전을 어떤 표현으로 들고 다녀야 수치적으로 안정적인가이다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 카메라의 위치와 자세는 곧 강체 변환이다. 로보틱스 배경이 있다면 SE(3)는 익숙하겠지만, 비전에서 중요한 건 이 변환이 투영·최적화와 어떻게 맞물리는가, 그리고 회전을 어떤 표현으로 들고 다녀야 수치적으로 안정적인가이다.

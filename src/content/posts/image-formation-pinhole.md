@@ -1,10 +1,11 @@
 ---
-title: "이미지 형성과 핀홀 카메라 모델"
-order: 6
-part: "Part 1. 이미지 형성·카메라"
-difficulty: "기초"
-reference: "Szeliski Ch.2.1 / Hartley & Zisserman Ch.6"
-url: "https://app.notion.com/381ef14a0ed8815c9dbed61ea424d986"
+title: "#6 — 이미지 형성과 핀홀 카메라 모델"
+published: 2026-07-27T12:55:00+09:00
+description: "카메라는 3D 세계를 2D 이미지로 누른다. 이 과정에서 무엇이 보존되고 무엇이 사라지는가 — 그 답이 핀홀 모델이고, 모든 비전 기하의 출발점이다."
+tags: [Vision, 기초]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 카메라는 3D 세계를 2D 이미지로 누른다. 이 과정에서 무엇이 보존되고 무엇이 사라지는가 — 그 답이 핀홀 모델이고, 모든 비전 기하의 출발점이다.

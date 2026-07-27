@@ -1,10 +1,11 @@
 ---
-title: "에피폴라 기하 (Fundamental·Essential 행렬)"
-order: 13
-part: "Part 3. 3D 복원 수학·다중뷰·SLAM"
-difficulty: "심화"
-reference: "Hartley & Zisserman Ch.9 (Epipolar Geometry)"
-url: "https://app.notion.com/381ef14a0ed88108ad86f68740dd5317"
+title: "#13 — 에피폴라 기하 (Fundamental·Essential 행렬)"
+published: 2026-07-27T12:48:00+09:00
+description: "두 시점에서 본 같은 장면 사이에는 강력한 기하 제약이 있다. 한 이미지의 점이 다른 이미지에서 한 직선(에피폴라선) 위에만 있을 수 있다는 것. 이 제약이 스테레오·SfM·SLAM의 수학적 뼈대다."
+tags: [Vision, 심화]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 두 시점에서 본 같은 장면 사이에는 강력한 기하 제약이 있다. 한 이미지의 점이 다른 이미지에서 한 직선(에피폴라선) 위에만 있을 수 있다는 것. 이 제약이 스테레오·SfM·SLAM의 수학적 뼈대다.

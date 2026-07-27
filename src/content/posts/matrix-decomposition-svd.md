@@ -1,10 +1,11 @@
 ---
-title: "행렬 분해 (고유분해·SVD)와 최소제곱"
-order: 2
-part: "Part 0. 수학 기반 (선형대수·기하)"
-difficulty: "중급"
-reference: "Hartley & Zisserman Appendix A4-A5 (SVD·최소제곱)"
-url: "https://app.notion.com/381ef14a0ed88183af59f9bc8dbd9c0e"
+title: "#2 — 행렬 분해 (고유분해·SVD)와 최소제곱"
+published: 2026-07-27T12:59:00+09:00
+description: "비전의 기하 문제는 거의 전부 \"노이즈 섞인 관측에서 제약을 가장 잘 만족하는 해 찾기\"로 귀결된다. 그 해를 푸는 두 도구가 SVD와 최소제곱이며, SVD는 비전의 만능 칼이다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 비전의 기하 문제는 거의 전부 "노이즈 섞인 관측에서 제약을 가장 잘 만족하는 해 찾기"로 귀결된다. 그 해를 푸는 두 도구가 SVD와 최소제곱이며, SVD는 비전의 만능 칼이다.

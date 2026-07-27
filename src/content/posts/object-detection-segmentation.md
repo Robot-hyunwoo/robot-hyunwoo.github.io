@@ -1,10 +1,11 @@
 ---
-title: "객체 검출과 분할 (YOLO·DETR·Mask R-CNN)"
-order: 18
-part: "Part 4. 딥러닝 비전"
-difficulty: "중급"
-reference: "Redmon 2016 (YOLO) / Carion 2020 (DETR)"
-url: "https://app.notion.com/381ef14a0ed8810385d8eaac30600b18"
+title: "#18 — 객체 검출과 분할 (YOLO·DETR·Mask R-CNN)"
+published: 2026-07-27T12:43:00+09:00
+description: "분류가 \"이 이미지가 무엇인가\"라면, 검출은 \"무엇이 어디에 있는가\", 분할은 \"어느 픽셀이 무엇인가\"다. 로봇이 물체를 잡거나 피하려면 위치와 경계가 필요하므로, 이 태스크들이 로보틱스 비전의 핵심이다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 분류가 "이 이미지가 무엇인가"라면, 검출은 "무엇이 어디에 있는가", 분할은 "어느 픽셀이 무엇인가"다. 로봇이 물체를 잡거나 피하려면 위치와 경계가 필요하므로, 이 태스크들이 로보틱스 비전의 핵심이다.

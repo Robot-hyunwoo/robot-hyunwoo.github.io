@@ -1,10 +1,11 @@
 ---
-title: "렌즈 왜곡과 카메라 캘리브레이션"
-order: 8
-part: "Part 1. 이미지 형성·카메라"
-difficulty: "중급"
-reference: "Zhang 2000 캘리브레이션 논문 / OpenCV Calibration 문서"
-url: "https://app.notion.com/381ef14a0ed881a5a55afd754e3717bd"
+title: "#8 — 렌즈 왜곡과 카메라 캘리브레이션"
+published: 2026-07-27T12:53:00+09:00
+description: "실제 렌즈는 핀홀 모델을 따르지 않는다. 직선이 휘어 보이는 왜곡이 있고, 내부 파라미터도 처음엔 모른다. 이 둘을 알려진 패턴으로 풀어내는 것이 캘리브레이션이다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 실제 렌즈는 핀홀 모델을 따르지 않는다. 직선이 휘어 보이는 왜곡이 있고, 내부 파라미터도 처음엔 모른다. 이 둘을 알려진 패턴으로 풀어내는 것이 캘리브레이션이다.

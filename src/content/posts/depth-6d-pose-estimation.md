@@ -1,10 +1,11 @@
 ---
-title: "깊이 추정·6D 자세 추정"
-order: 19
-part: "Part 4. 딥러닝 비전"
-difficulty: "심화"
-reference: "Eigen 2014 (Depth) / PoseCNN 2018"
-url: "https://app.notion.com/381ef14a0ed88165b896e72dfaf825b1"
+title: "#19 — 깊이 추정·6D 자세 추정"
+published: 2026-07-27T12:42:00+09:00
+description: "기하 기반 비전은 여러 시점이 있어야 깊이를 복원했다(Part 3). 딥러닝은 단일 이미지에서도 깊이를 추정하고, 물체의 완전한 6D 자세를 직접 예측한다. 기하와 학습이 만나는 지점이다."
+tags: [Vision, 심화]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 기하 기반 비전은 여러 시점이 있어야 깊이를 복원했다(Part 3). 딥러닝은 단일 이미지에서도 깊이를 추정하고, 물체의 완전한 6D 자세를 직접 예측한다. 기하와 학습이 만나는 지점이다.

@@ -1,10 +1,11 @@
 ---
-title: "카메라 내부·외부 파라미터와 투영행렬"
-order: 7
-part: "Part 1. 이미지 형성·카메라"
-difficulty: "중급"
-reference: "Hartley & Zisserman Ch.6 (Camera Models)"
-url: "https://app.notion.com/381ef14a0ed88120945dedb4a646a7b6"
+title: "#7 — 카메라 내부·외부 파라미터와 투영행렬"
+published: 2026-07-27T12:54:00+09:00
+description: "카메라의 전체 투영은 \"카메라가 어디에 어떻게 놓였는가\"(외부)와 \"카메라 내부의 광학 특성\"(내부)으로 분리된다. 이 둘의 곱이 투영행렬이며, 둘을 나누는 것이 캘리브레이션과 자세 추정의 출발점이다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 카메라의 전체 투영은 "카메라가 어디에 어떻게 놓였는가"(외부)와 "카메라 내부의 광학 특성"(내부)으로 분리된다. 이 둘의 곱이 투영행렬이며, 둘을 나누는 것이 캘리브레이션과 자세 추정의 출발점이다.

@@ -1,10 +1,11 @@
 ---
-title: "삼각측량·PnP·번들 조정"
-order: 15
-part: "Part 3. 3D 복원 수학·다중뷰·SLAM"
-difficulty: "심화"
-reference: "Hartley & Zisserman Ch.12 / Triggs 2000 (Bundle Adjustment)"
-url: "https://app.notion.com/381ef14a0ed881f493f9d95cd74c902c"
+title: "#15 — 삼각측량·PnP·번들 조정"
+published: 2026-07-27T12:46:00+09:00
+description: "3D 복원의 세 가지 핵심 도구. 삼각측량은 점의 위치를, PnP는 카메라의 자세를, 번들 조정은 둘 다를 동시에 정제한다. SfM과 SLAM의 계산 엔진이다."
+tags: [Vision, 심화]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 3D 복원의 세 가지 핵심 도구. 삼각측량은 점의 위치를, PnP는 카메라의 자세를, 번들 조정은 둘 다를 동시에 정제한다. SfM과 SLAM의 계산 엔진이다.

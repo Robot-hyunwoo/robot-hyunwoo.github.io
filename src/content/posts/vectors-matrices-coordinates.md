@@ -1,10 +1,11 @@
 ---
-title: "벡터·행렬·좌표계의 기초"
-order: 1
-part: "Part 0. 수학 기반 (선형대수·기하)"
-difficulty: "기초"
-reference: "Szeliski 2nd ed. Ch.2 / 3Blue1Brown 선형대수 시리즈"
-url: "https://app.notion.com/381ef14a0ed881489841d6d692f17e04"
+title: "#1 — 벡터·행렬·좌표계의 기초"
+published: 2026-07-27T13:00:00+09:00
+description: "로보틱스 비전의 모든 연산은 \"좌표계 사이를 오가는 점\"의 문제다. 그 점을 옮기는 언어가 벡터와 행렬이고, 그 무대가 좌표계다. 이 글은 그 셋을 비전·로보틱스의 시각에서 다시 정의한다."
+tags: [Vision, 기초]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 로보틱스 비전의 모든 연산은 "좌표계 사이를 오가는 점"의 문제다. 그 점을 옮기는 언어가 벡터와 행렬이고, 그 무대가 좌표계다. 이 글은 그 셋을 비전·로보틱스의 시각에서 다시 정의한다.

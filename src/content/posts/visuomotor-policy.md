@@ -1,10 +1,11 @@
 ---
-title: "학습 기반 visuomotor policy"
-order: 21
-part: "Part 5. Visual Servoing·로봇 통합"
-difficulty: "심화"
-reference: "Levine 2016 (End-to-End Visuomotor) / 최신 VLA 논문"
-url: "https://app.notion.com/381ef14a0ed8817291a9cd660d166736"
+title: "#21 — 학습 기반 visuomotor policy"
+published: 2026-07-27T12:40:00+09:00
+description: "고전 Visual Servoing은 특징과 제어 법칙을 사람이 설계했다. 학습 기반 정책은 영상에서 행동까지를 하나의 신경망으로 학습한다. 이 로드맵의 마지막이자, 비전과 로보틱스가 완전히 융합되는 최전선이다."
+tags: [Vision, 심화]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 고전 Visual Servoing은 특징과 제어 법칙을 사람이 설계했다. 학습 기반 정책은 영상에서 행동까지를 하나의 신경망으로 학습한다. 이 로드맵의 마지막이자, 비전과 로보틱스가 완전히 융합되는 최전선이다.

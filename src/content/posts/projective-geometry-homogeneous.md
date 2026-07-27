@@ -1,10 +1,11 @@
 ---
-title: "사영기하와 동차좌표 (Homogeneous coordinates)"
-order: 3
-part: "Part 0. 수학 기반 (선형대수·기하)"
-difficulty: "중급"
-reference: "Hartley & Zisserman Ch.2 (Projective Geometry 2D)"
-url: "https://app.notion.com/381ef14a0ed881daa872ee235cf15809"
+title: "#3 — 사영기하와 동차좌표 (Homogeneous coordinates)"
+published: 2026-07-27T12:58:00+09:00
+description: "핀홀 카메라의 원근투영에는 나눗셈이 들어가서 선형변환이 아니다. 차원을 하나 늘려 이 비선형을 선형으로 바꾸는 트릭이 동차좌표이고, 그 무대가 사영기하다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 핀홀 카메라의 원근투영에는 나눗셈이 들어가서 선형변환이 아니다. 차원을 하나 늘려 이 비선형을 선형으로 바꾸는 트릭이 동차좌표이고, 그 무대가 사영기하다.

@@ -1,10 +1,11 @@
 ---
-title: "엣지·코너 검출 (Harris)"
-order: 11
-part: "Part 2. 특징·저수준 비전"
-difficulty: "중급"
-reference: "Szeliski Ch.7.1 / Harris & Stephens 1988"
-url: "https://app.notion.com/381ef14a0ed8816ca8a6fab18bb952c6"
+title: "#11 — 엣지·코너 검출 (Harris)"
+published: 2026-07-27T12:50:00+09:00
+description: "두 이미지를 매칭하려면 \"어디를 매칭할지\" 정해야 한다. 평평한 영역이나 엣지 위의 점은 모호하고, 코너만이 명확히 특정된다. 코너가 왜 좋은 특징인지, 어떻게 찾는지가 이 항목이다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 두 이미지를 매칭하려면 "어디를 매칭할지" 정해야 한다. 평평한 영역이나 엣지 위의 점은 모호하고, 코너만이 명확히 특정된다. 코너가 왜 좋은 특징인지, 어떻게 찾는지가 이 항목이다.

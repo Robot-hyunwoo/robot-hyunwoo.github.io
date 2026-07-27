@@ -1,10 +1,11 @@
 ---
-title: "스테레오 정합과 깊이 추정"
-order: 14
-part: "Part 3. 3D 복원 수학·다중뷰·SLAM"
-difficulty: "중급"
-reference: "Szeliski Ch.12 (Stereo Correspondence)"
-url: "https://app.notion.com/381ef14a0ed88109a609ea2d0641aa93"
+title: "#14 — 스테레오 정합과 깊이 추정"
+published: 2026-07-27T12:47:00+09:00
+description: "두 카메라의 시차로 깊이를 복원하는 것이 스테레오다. 사람의 두 눈과 같은 원리. 핵심은 \"좌우 이미지에서 같은 점을 어떻게 찾고, 그 시차로 깊이를 어떻게 계산하는가\"다."
+tags: [Vision, 중급]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 두 카메라의 시차로 깊이를 복원하는 것이 스테레오다. 사람의 두 눈과 같은 원리. 핵심은 "좌우 이미지에서 같은 점을 어떻게 찾고, 그 시차로 깊이를 어떻게 계산하는가"다.

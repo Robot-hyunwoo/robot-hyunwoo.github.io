@@ -1,10 +1,11 @@
 ---
-title: "카메라 종류 (모노·스테레오·RGB-D·LiDAR·이벤트)"
-order: 9
-part: "Part 1. 이미지 형성·카메라"
-difficulty: "기초"
-reference: "Corke RVC Ch.13 / 각 센서 공식 문서"
-url: "https://app.notion.com/381ef14a0ed881ae9559f637dc76daa3"
+title: "#9 — 카메라 종류 (모노·스테레오·RGB-D·LiDAR·이벤트)"
+published: 2026-07-27T12:52:00+09:00
+description: "로보틱스 비전에서 카메라 선택의 핵심 기준은 \"3D 정보(깊이)를 얻을 수 있는가, 어떻게 얻는가\"다. 로봇은 물리 공간에서 움직여야 하므로 2D 색상만으로는 부족하고 거리·형상이 필요하기 때문이다."
+tags: [Vision, 기초]
+category: Vision
+draft: false
+lang: ko
 ---
 
 > 로보틱스 비전에서 카메라 선택의 핵심 기준은 "3D 정보(깊이)를 얻을 수 있는가, 어떻게 얻는가"다. 로봇은 물리 공간에서 움직여야 하므로 2D 색상만으로는 부족하고 거리·형상이 필요하기 때문이다.
