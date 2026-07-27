@@ -116,11 +116,11 @@ function fmtDate(d: Date) {
                                             {post.data.title}
                                         </h2>
                                     )}
-                                    <div class="flex items-center gap-2 text-30 text-xs">
-                                        <time>{fmtDate(post.data.published)}</time>
+                                    <div class="flex flex-col gap-0.5 text-30 text-xs">
                                         {post.data.tags?.length > 0 && (
                                             <span class="truncate">{post.data.tags.slice(0, 3).map((t) => `#${t}`).join(" ")}</span>
                                         )}
+                                        <time>{fmtDate(post.data.published)}</time>
                                     </div>
                                 </div>
                             </a>
