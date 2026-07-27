@@ -40,9 +40,20 @@ const problemsCollection = defineCollection({
 		url: z.string().optional().default(""), // 문제 원본 링크
 	}),
 });
+const visionCollection = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		order: z.number(), // roadmap sequence number
+		part: z.string(), // e.g. "Part 0. 수학 기반 (선형대수·기하)"
+		difficulty: z.string(), // 기초 | 중급 | 심화
+		reference: z.string().optional().default(""), // core reference
+		url: z.string().optional().default(""), // Notion source page
+	}),
+});
 export const collections = {
 	posts: postsCollection,
 	spec: specCollection,
 	interests: interestsCollection,
 	problems: problemsCollection,
+	vision: visionCollection,
 };
